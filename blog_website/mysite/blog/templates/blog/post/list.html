@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %***REMOVED***
+
+{% block title %***REMOVED***My Blog{% endblock %***REMOVED***
+
+{% block content %***REMOVED***
+
+    <h1>My Blog</h1>
+***REMOVED***% for post in posts %***REMOVED***
+
+        <h2>
+            <a href="{% url 'blog:post_detail' post.id %***REMOVED***">
+        ***REMOVED***{ post.title ***REMOVED******REMOVED***
+            </a>
+        </h2>
+        <p class="date">
+            Published {{ post.publish ***REMOVED******REMOVED*** by {{ post.author ***REMOVED******REMOVED***
+        </p>
+    ***REMOVED***{ post.body|truncatewords:30|linebreaks ***REMOVED******REMOVED***
+***REMOVED***% endfor %***REMOVED***
+
+***REMOVED***% endblock %***REMOVED***
