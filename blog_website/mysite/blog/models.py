@@ -3,6 +3,13 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
+class PublishedManager(models.Manager):
+    '''Custom manager.'''
+    def get_queryset(self):
+        '''to get all published post'''
+        return super().get_queryset().filter(status=Post.Status.PUBLISHED)
+    
+
 class Post(models.Model):
     '''This model describes the blog-post structure'''
 
@@ -29,7 +36,9 @@ class Post(models.Model):
                                 default=Status.DRAFT
     )
 
-
+    objects = models.Manager() #The defaylt Manager
+    published = PublishedManager() # Custom manager
+    
     # Model Meta is basically the inner class of your model class. Model Meta is basically used to change the behavior 
     # of your model fields like changing order options,verbose_name, and a lot of other options. It’s completely optional to add a Meta class to your model.
     class Meta:
