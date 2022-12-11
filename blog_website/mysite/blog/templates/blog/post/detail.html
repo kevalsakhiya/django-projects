@@ -16,4 +16,22 @@
         </a>
     </p>
 
+***REMOVED***% with comments.count as total_comments %***REMOVED***
+        <h2>
+        ***REMOVED***{ total_comments ***REMOVED******REMOVED*** comment{{ total_comments|pluralize ***REMOVED******REMOVED***
+        </h2>
+***REMOVED***% endwith %***REMOVED***
+
+***REMOVED***% for comment in comments %***REMOVED***
+        <div class="comment">
+            <p class="info">
+                Comment {{ forloop.counter ***REMOVED******REMOVED*** by {{ comment.name ***REMOVED******REMOVED***
+            ***REMOVED***{ comment.created ***REMOVED******REMOVED***
+            </p>
+        ***REMOVED***{ comment.body|linebreaks ***REMOVED******REMOVED***
+        </div>
+    ***REMOVED***% empty %***REMOVED***
+            <p>There are no comments.</p>
+***REMOVED***% endfor %***REMOVED***
+***REMOVED***% include "blog/post/includes/comment_form.html" %***REMOVED***
 {% endblock %***REMOVED***

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -22,3 +22,9 @@ class PostAdmin(admin.ModelAdmin):
     # With this we cann order the posts by given field name in ordering
     ordering = ['status','publish'***REMOVED***
 
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'post', 'created', 'active'***REMOVED***
+    list_filter = ['active', 'created', 'updated'***REMOVED***
+    search_fields = ['name', 'email', 'body'***REMOVED***
