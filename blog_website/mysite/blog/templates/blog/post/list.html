@@ -8,10 +8,11 @@
 ***REMOVED***% for post in posts %***REMOVED***
 
         <h2>
-            <a href="{% url 'blog:post_detail' post.id %***REMOVED***">
-        ***REMOVED***{ post.title ***REMOVED******REMOVED***
+            <a href="{{ post.get_absolute_url ***REMOVED******REMOVED***">
+            ***REMOVED***{ post.title ***REMOVED******REMOVED***
             </a>
         </h2>
+        
         <p class="date">
             Published {{ post.publish ***REMOVED******REMOVED*** by {{ post.author ***REMOVED******REMOVED***
         </p>
