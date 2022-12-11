@@ -3,6 +3,9 @@ from .models import Post
 # from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
+from .forms import EmailPostForm
+from django.core.mail import send_mail
+
 
 class PostListView(ListView):
     ***REMOVED***
@@ -46,3 +49,34 @@ def post_detail(request,year,month,day,post):
                     'blog/post/detail.html',
                 ***REMOVED***'post':post***REMOVED***                    
                     )
+
+def post_share(request, post_id):
+    # retrive posts by id
+    post = get_object_or_404(Post,
+                            id=post_id,
+                            status=Post.Status.PUBLISHED
+                            )
+    sent = False
+    
+    if request.method=='POST':
+        # Form was submitted
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            # Form fields passed validation
+            cd = form.cleaned_data
+            # ... send email
+            post_url = request.build_absolute_uri(post.get_absolute_url())
+            subject = f"{cd['name'***REMOVED******REMOVED*** recommends  you read {post.title***REMOVED***"
+            message = f"Read {post.title***REMOVED*** at {post_url***REMOVED***\n\n {cd['name'***REMOVED******REMOVED***\'s comments: {cd['comments'***REMOVED******REMOVED***"
+
+            send_mail(subject,message,'olalajulala@gmail.com',[cd['to'***REMOVED******REMOVED***)
+            sent = True
+    else:
+        form = EmailPostForm()
+
+    return render(request,
+                'blog/post/share.html',
+            ***REMOVED***'post':post,
+                'form':form,
+                'sent':sent***REMOVED***
+                )
