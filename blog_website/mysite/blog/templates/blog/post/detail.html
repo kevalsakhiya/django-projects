@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %***REMOVED***
+{% load blog_tags %***REMOVED***
 
 {% block title %***REMOVED***{{ post.title ***REMOVED******REMOVED***{% endblock %***REMOVED***
 
@@ -8,7 +9,7 @@
     <p class="date">
         Published {{ post.publish ***REMOVED******REMOVED*** by {{ post.author ***REMOVED******REMOVED***
     </p>
-***REMOVED***{ post.body|linebreaks ***REMOVED******REMOVED***
+***REMOVED***{ post.body|markdown ***REMOVED******REMOVED***
 
     <p>
         <a href='{% url "blog:post_share" post.id %***REMOVED***'>

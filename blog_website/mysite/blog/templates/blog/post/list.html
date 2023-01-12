@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %***REMOVED***
+{% load blog_tags %***REMOVED***
 
 {% block title %***REMOVED***My Blog{% endblock %***REMOVED***
 
@@ -29,7 +30,7 @@
         <p class="date">
             Published {{ post.publish ***REMOVED******REMOVED*** by {{ post.author ***REMOVED******REMOVED***
         </p>
-    ***REMOVED***{ post.body|truncatewords:30|linebreaks ***REMOVED******REMOVED***
+    ***REMOVED***{ post.body|markdown|truncatewords_html:30 ***REMOVED******REMOVED***
 ***REMOVED***% endfor %***REMOVED***
 
 ***REMOVED***% include "pagination.html" with page=posts %***REMOVED***
