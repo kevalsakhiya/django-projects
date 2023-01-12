@@ -16,6 +16,15 @@
         </a>
     </p>
 
+    <h2>Similar posts</h2>
+***REMOVED***% for post in similar_posts %***REMOVED***
+        <p>
+            <a href="{{ post.get_absolute_url ***REMOVED******REMOVED***">{{ post.title ***REMOVED******REMOVED***</a>
+        </p>
+***REMOVED***% empty %***REMOVED***
+        There are no similar posts yet.
+***REMOVED***% endfor %***REMOVED***
+
 ***REMOVED***% with comments.count as total_comments %***REMOVED***
         <h2>
         ***REMOVED***{ total_comments ***REMOVED******REMOVED*** comment{{ total_comments|pluralize ***REMOVED******REMOVED***
