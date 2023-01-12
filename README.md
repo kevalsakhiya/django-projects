@@ -1,1 +1,1 @@
-# django-projects
+# This project is a practice of the project that is provided in Django 4.By Example 4th.Edition Antonio.Mele.

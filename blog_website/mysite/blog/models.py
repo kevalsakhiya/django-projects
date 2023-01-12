@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 
 class PublishedManager(models.Manager):
@@ -39,6 +40,7 @@ class Post(models.Model):
 
     objects = models.Manager() #The defaylt Manager
     published = PublishedManager() # Custom manager
+    tags = TaggableManager() # Manager given from taggit
     
     # Model Meta is basically the inner class of your model class. Model Meta is basically used to change the behavior 
     # of your model fields like changing order options,verbose_name, and a lot of other options. It’s completely optional to add a Meta class to your model.
