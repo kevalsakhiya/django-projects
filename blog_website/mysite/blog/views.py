@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 from django.views.decorators.http import require_POST
 from taggit.models import Tag
 from django.db.models import Count
-from django.contrib.postgres.search import SearchVector,SearchQuery, SearchRank
+from django.contrib.postgres.search import SearchVector,SearchQuery, SearchRank, TrigramSimilarity
 
 class PostListView(ListView):
     ***REMOVED***
@@ -138,11 +138,17 @@ def post_search(request):
         form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query'***REMOVED***
-            search_vector = SearchVector('title', weight='A') + SearchVector('body', weight='B')
-            search_query = SearchQuery(query)
-    results = Post.published.annotate(
-                                search=search_vector,rank=SearchRank(search_vector, search_query)
-                                ).filter(rank__gte=0.3).order_by('-rank')
+            # 1 -  Search with stemming and weighing over field
+    #         search_vector = SearchVector('title', weight='A') + SearchVector('body', weight='B')
+    #         search_query = SearchQuery(query)
+    #         results = Post.published.annotate(
+    #                             search=search_vector,rank=SearchRank(search_vector, search_query)
+    #                             ).filter(rank__gte=0.3).order_by('-rank')
+
+            # 2 - search using trigram similarity
+            results = Post.published.annotate(
+                                        similarity=TrigramSimilarity('title', query) + TrigramSimilarity('body', query),
+                                        ).filter(similarity__gt=0.1).order_by('-similarity')
     
     return render(request,
                 'blog/post/search.html',
