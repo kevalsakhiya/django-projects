@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %***REMOVED***
+{% load blog_tags %***REMOVED***
+
+{% block title %***REMOVED***Search{% endblock %***REMOVED***
+
+{% block content %***REMOVED***
+
+***REMOVED***% if query %***REMOVED***
+        <h1>Posts containing "{{ query ***REMOVED******REMOVED***"</h1>
+        <h3>
+        ***REMOVED***% with results.count as total_results %***REMOVED***
+                Found {{ total_results ***REMOVED******REMOVED*** result{{ total_results|pluralize ***REMOVED******REMOVED***
+        ***REMOVED***% endwith %***REMOVED***
+        </h3>
+
+    ***REMOVED***% for post in results %***REMOVED***
+            <h4>
+                <a href="{{ post.get_absolute_url ***REMOVED******REMOVED***">
+                ***REMOVED***{ post.title ***REMOVED******REMOVED***
+                </a>
+            </h4>
+        ***REMOVED***{ post.body|markdown|truncatewords_html:12 ***REMOVED******REMOVED***
+    ***REMOVED***% empty %***REMOVED***
+            <p>There are no results for your query.</p>
+    ***REMOVED***% endfor %***REMOVED***
+
+        <p><a href="{% url 'blog:post_search' %***REMOVED***">Search again</a></p>
+***REMOVED***% else %***REMOVED***
+        <h1>Search for posts</h1>
+        <form method="get">
+        ***REMOVED***{ form.as_p ***REMOVED******REMOVED***
+            <input type="submit" value="Search">
+        </form>
+***REMOVED***% endif %***REMOVED***
+
+{% endblock %***REMOVED***
