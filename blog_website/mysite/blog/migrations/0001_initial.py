@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-    ***REMOVED***
+    ]
 
     operations = [
         migrations.CreateModel(
@@ -25,15 +25,15 @@ class Migration(migrations.Migration):
                 ('publish', models.DateTimeField(default=django.utils.timezone.now)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('status', models.CharField(choices=[('DF', 'Draft'), ('PB', 'Published')***REMOVED***, default='DF', max_length=2)),
+                ('status', models.CharField(choices=[('DF', 'Draft'), ('PB', 'Published')], default='DF', max_length=2)),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='blog_posts', to=settings.AUTH_USER_MODEL)),
-            ***REMOVED***,
+            ],
             options={
-                'ordering': ['-publish'***REMOVED***,
-    ***REMOVED***
+                'ordering': ['-publish'],
+            },
         ),
         migrations.AddIndex(
             model_name='post',
-            index=models.Index(fields=['-publish'***REMOVED***, name='blog_post_publish_bb7600_idx'),
+            index=models.Index(fields=['-publish'], name='blog_post_publish_bb7600_idx'),
         ),
-    ***REMOVED***
+    ]

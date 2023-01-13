@@ -1,7 +1,7 @@
 <ul>
-***REMOVED***% for post in latest_posts %***REMOVED***
+    {% for post in latest_posts %}
         <li>
-            <a href="{{ post.get_absolute_url ***REMOVED******REMOVED***">{{ post.title ***REMOVED******REMOVED***</a>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         </li>
-***REMOVED***% endfor %***REMOVED***
+    {% endfor %}
 </ul>

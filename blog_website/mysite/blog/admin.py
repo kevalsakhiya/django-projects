@@ -8,23 +8,23 @@ class PostAdmin(admin.ModelAdmin):
     the model on the site and how to interact with it.'''
 
     # The list_display attribute allows you to set the fields of your model that you want to display on the administration object list page.
-    list_display =  ['title','slug','author','publish','status'***REMOVED***
+    list_display =  ['title','slug','author','publish','status']
     # list_filter attribute defines the ways of filtering the results by the fields included in it.
-    list_filter = ['status', 'created', 'publish', 'author'***REMOVED***
+    list_filter = ['status', 'created', 'publish', 'author']
     # search_bar appears on the page in which we cans earch the posts by searchable fields.
-    search_fields = ['title','body'***REMOVED***
+    search_fields = ['title','body']
     # populates slug field based on title
-    prepopulated_fields = {'slug':('title',)***REMOVED***
+    prepopulated_fields = {'slug':('title',)}
     # this provides a lookup-widget on screen and fill it with the id of the author
-    raw_id_fields = ['author'***REMOVED***
+    raw_id_fields = ['author']
     # adds date based drilled down navigation on the page
     date_hierarchy = 'publish'
     # With this we cann order the posts by given field name in ordering
-    ordering = ['status','publish'***REMOVED***
+    ordering = ['status','publish']
 
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'post', 'created', 'active'***REMOVED***
-    list_filter = ['active', 'created', 'updated'***REMOVED***
-    search_fields = ['name', 'email', 'body'***REMOVED***
+    list_display = ['name', 'email', 'post', 'created', 'active']
+    list_filter = ['active', 'created', 'updated']
+    search_fields = ['name', 'email', 'body']

@@ -46,10 +46,10 @@ class Post(models.Model):
     # of your model fields like changing order options,verbose_name, and a lot of other options. It’s completely optional to add a Meta class to your model.
     class Meta:
         '''We are adding ordering attribute in meta, to tell django to sort posts by publish field'''
-        ordering=['-publish'***REMOVED***
+        ordering=['-publish']
         indexes = [
-            models.Index(fields=['-publish'***REMOVED***),
-        ***REMOVED***
+            models.Index(fields=['-publish']),
+        ]
 
     def __str__(self):
         '''This is the default Python method to return a string with the human-readable representation of the object.'''
@@ -62,7 +62,7 @@ class Post(models.Model):
                             self.publish.month,
                             self.publish.day,
                             self.slug
-                        ***REMOVED***)
+                        ])
 
 class Comment(models.Model):
     post = models.ForeignKey(Post,
@@ -77,10 +77,10 @@ class Comment(models.Model):
     active = models.BooleanField(default=True)
 
     class Meta:
-        ordering = ['created'***REMOVED***
+        ordering = ['created']
         indexes = [
-            models.Index(fields=['created'***REMOVED***)
-        ***REMOVED***
+            models.Index(fields=['created'])
+        ]
     
     def __str__(self):
-        return f'Comment by {self.name***REMOVED*** on {self.post***REMOVED***'
+        return f'Comment by {self.name} on {self.post}'

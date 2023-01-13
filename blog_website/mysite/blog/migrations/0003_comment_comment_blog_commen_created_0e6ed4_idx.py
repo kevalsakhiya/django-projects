@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('blog', '0002_alter_post_slug'),
-    ***REMOVED***
+    ]
 
     operations = [
         migrations.CreateModel(
@@ -22,13 +22,13 @@ class Migration(migrations.Migration):
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('active', models.BooleanField(default=True)),
                 ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='blog.post')),
-            ***REMOVED***,
+            ],
             options={
-                'ordering': ['created'***REMOVED***,
-    ***REMOVED***
+                'ordering': ['created'],
+            },
         ),
         migrations.AddIndex(
             model_name='comment',
-            index=models.Index(fields=['created'***REMOVED***, name='blog_commen_created_0e6ed4_idx'),
+            index=models.Index(fields=['created'], name='blog_commen_created_0e6ed4_idx'),
         ),
-    ***REMOVED***
+    ]

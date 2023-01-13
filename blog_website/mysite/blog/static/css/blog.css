@@ -2,29 +2,29 @@ body {
     margin:0;
     padding:0;
     font-family:helvetica, sans-serif; 
-***REMOVED***
+}
 
 a { 
     color:#00abff;
     text-decoration:none; 
-***REMOVED***
+}
 
 h1 { 
     font-weight:normal;
     border-bottom:1px solid #bbb;
     padding:0 0 10px 0;
-***REMOVED***
+}
 
 h2 {
     font-weight:normal;
     margin:30px 0 0;
-***REMOVED***
+}
 
 #content { 
     float:left;
     width:60%;
     padding:0 0 0 30px; 
-***REMOVED***
+}
 
 #sidebar { 
     float:right;
@@ -32,20 +32,20 @@ h2 {
     padding:10px;
     background:#efefef; 
     height:100%;
-***REMOVED***
+}
 
 p.date { 
     color:#ccc;
     font-family: georgia, serif;
     font-size: 12px;
     font-style: italic; 
-***REMOVED***
+}
 
 /* pagination */
 .pagination { 
     margin:40px 0; 
     font-weight:bold;
-***REMOVED***
+}
 
 /* forms */
 label { 
@@ -53,7 +53,7 @@ label {
     clear:both;
     color:#333;
     margin-bottom:4px; 
-***REMOVED***
+}
 input, textarea { 
     clear:both;
     float:left;
@@ -62,31 +62,31 @@ input, textarea {
     border:0;
     padding:6px 10px;
     font-size:12px;
-***REMOVED***
-input[type=submit***REMOVED*** {
+}
+input[type=submit] {
     font-weight:bold;
     background:#00abff;
     color:#fff;
     padding:10px 20px;
     font-size:14px;
     text-transform:uppercase; 
-***REMOVED***
+}
 .errorlist { 
     color:#cc0033;
     float:left;
     clear:both;
     padding-left:10px; 
-***REMOVED***
+}
 
 /* comments */
 .comment {
     padding:10px;
-***REMOVED***
+}
 .comment:nth-child(even) {
     background:#efefef;
-***REMOVED***
+}
 .comment .info {
     font-weight:bold;
     font-size:12px;
     color:#666;
-***REMOVED***
+}

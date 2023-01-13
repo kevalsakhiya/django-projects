@@ -1,12 +1,12 @@
-{% extends "blog/base.html" %***REMOVED***
-{% block title %***REMOVED***Add a comment{% endblock %***REMOVED***
+{% extends "blog/base.html" %}
+{% block title %}Add a comment{% endblock %}
 
-{% block content %***REMOVED***
-***REMOVED***% if comment %***REMOVED***
+{% block content %}
+    {% if comment %}
         <h2>Your comment has been added.</h2>
-        <p><a href="{{ post.get_absolute_url ***REMOVED******REMOVED***">Back to the post</a></p>
-***REMOVED***% else %***REMOVED***
-    ***REMOVED***% include "blog/post/includes/comment_form.html" %***REMOVED***
-***REMOVED***% endif %***REMOVED***
+        <p><a href="{{ post.get_absolute_url }}">Back to the post</a></p>
+    {% else %}
+        {% include "blog/post/includes/comment_form.html" %}
+    {% endif %}
 
-{% endblock %***REMOVED***
+{% endblock %}

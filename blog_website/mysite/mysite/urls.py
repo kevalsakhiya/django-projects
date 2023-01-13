@@ -1,4 +1,4 @@
-***REMOVED***mysite URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -12,7 +12,7 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-***REMOVED***
+"""
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.sitemaps.views import sitemap
@@ -20,12 +20,12 @@ from blog.sitemaps import PostSitemap
 
 sitemaps = {
     'posts':PostSitemap,
-***REMOVED***
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/',include('blog.urls',namespace='blog')),
-    path('sitemap.xml',sitemap,{'sitemaps': sitemaps***REMOVED***,
+    path('sitemap.xml',sitemap,{'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
     
-***REMOVED***   
+]   

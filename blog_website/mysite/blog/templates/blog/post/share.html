@@ -1,19 +1,19 @@
-{% extends "blog/base.html" %***REMOVED***
+{% extends "blog/base.html" %}
 
-{% block title %***REMOVED***Share a post{% endblock %***REMOVED***
+{% block title %}Share a post{% endblock %}
 
-{% block content %***REMOVED***
-***REMOVED***% if sent %***REMOVED***
+{% block content %}
+    {% if sent %}
         <h1>E-mail successfully sent</h1>
         <p>
-            "{{ post.title ***REMOVED******REMOVED***" was successfully sent to {{ form.cleaned_data.to ***REMOVED******REMOVED***.
+            "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
         </p>
-***REMOVED***% else %***REMOVED***
-        <h1>Share "{{ post.title ***REMOVED******REMOVED***" by e-mail</h1>
+    {% else %}
+        <h1>Share "{{ post.title }}" by e-mail</h1>
         <form method="post">
-        ***REMOVED***{ form.as_p ***REMOVED******REMOVED***
-        ***REMOVED***% csrf_token %***REMOVED***
+            {{ form.as_p }}
+            {% csrf_token %}
             <input type="submit" value="Send e-mail">
         </form>
-***REMOVED***% endif %***REMOVED***
-{% endblock %***REMOVED***
+    {% endif %}
+{% endblock %}
