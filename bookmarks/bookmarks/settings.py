@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'django_extensions',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -162,3 +163,4 @@ SOCIAL_AUTH_PIPELINE = [
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
 ]
+
